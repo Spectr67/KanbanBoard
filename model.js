@@ -40,24 +40,27 @@ const kanbanBoard = {
 
   moveRight(columnId, cardId) {
     const currentColumn = this.getColumnById(columnId)
-
-    const movingCard = this.getCardById(cardId)
-
+    const movingCard = currentColumn.getCardById(cardId)
     const currentIndex = this.columns.indexOf(currentColumn)
-    if (currentIndex === this.columns.length - 1) {
-      currentColumn.isPushable = false
-      console.log('Последняя колонка')
+    const nextColumn = this.columns[currentIndex + 1]
+    const isLastColumn = currentIndex === this.columns.length - 1
+
+    if (isLastColumn) {
       return
     }
 
-    const nextColumn = this.columns[currentColumn + 1]
-    currentColumn.cards = currentColumn.cards.filter(c => c.id !== card.id)
     nextColumn.cards.push(movingCard)
+    currentColumn.cards = currentColumn.cards.filter(
+      c => movingCard.id !== movingCard.id
+    )
+    currentColumn.cardsCount = currentColumn.cards.length
+    nextColumn.cardsCount = nextColumn.cards.length
   },
 
   addCard(text, author) {
     const card = createCard(text, author)
     if (this.columns.length > 0) this.columns[0].cards.push(card)
+    this.columns[0].cardsCount = this.columns[0].cards.length
   },
 
   addColumn(title, cardsLimit) {
@@ -81,15 +84,24 @@ const kanbanBoard = {
   },
 }
 
-console.log(kanbanBoard.columns)
+// console.log(kanbanBoard.columns)
 kanbanBoard.addColumn('plan', 4)
-console.log(kanbanBoard.columns)
+// console.log(kanbanBoard.columns)
 kanbanBoard.addColumn('discussion', 3)
-console.log(kanbanBoard.columns)
+// console.log(kanbanBoard.columns)
 kanbanBoard.addCard('write function 2+2 sum')
-console.log(kanbanBoard.columns[0].cards)
+// console.log(kanbanBoard.columns[0])
+// console.log(kanbanBoard.columns[0].cards)
+const cardId = kanbanBoard.columns[0].cards[0].id
+// console.log(cardId)
+const columnId = kanbanBoard.columns[0].id
+// console.log(columnId)
 
-kanbanBoard.columns[0].moveRight()
+kanbanBoard.moveRight(columnId, cardId)
+console.log(kanbanBoard.columns[0].cards)
+console.log(kanbanBoard.columns[0].cardsCount)
+console.log(kanbanBoard.columns[1].cards)
+console.log(kanbanBoard.columns[1].cardsCount)
 
 // надо ли ??
 // getCardByIdx
