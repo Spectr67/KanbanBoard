@@ -35,9 +35,8 @@ export default {
       this.showModal = false
     },
 
-    handleColumnSubmit(newColumn) {
-      this.columns.push(newColumn)
-      this.columnsCount = this.columns.length
+    handleCardSubmit(newCard) {
+      this.$emit('CardSubmit', newCard)
       this.closeModal()
     },
   },
@@ -46,7 +45,7 @@ export default {
 
 <template>
   <BModal v-model="showModal" title="Add New Card" centered no-footer>
-    <CardSubmitterModalForm />
+    <CardSubmitterModalForm @CardSubmit="handleCardSubmit" />
   </BModal>
 
   <BCard class="wrapper-card" no-body>
