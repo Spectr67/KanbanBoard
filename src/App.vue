@@ -1,5 +1,5 @@
 <script>
-import KanbanBoard from './KanbanBoard.vue'
+import KanbanBoard from './Components/KanbanBoard.vue'
 
 export default {
   components: { KanbanBoard },

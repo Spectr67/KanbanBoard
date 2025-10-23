@@ -7,7 +7,7 @@ import {
   BFormInput,
   BButton,
 } from 'bootstrap-vue-next'
-import { createColumn } from './CreateFunctions'
+import { createColumn } from '@/CreateFunctions'
 export default {
   components: {
     BFormGroup,

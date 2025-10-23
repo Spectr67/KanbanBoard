@@ -1,10 +1,10 @@
 <script>
 import { BButton, BModal } from 'bootstrap-vue-next'
-import ColumnList from './ColumnList.vue'
-import ColumnSubmitterModalForm from './ColumnSubmitterModalForm.vue'
+import ColumnSubmitterModalForm from './Column/ColumnSubmitterModalForm.vue'
+import ColumnList from './Column/ColumnList.vue'
 
 export default {
-  components: { ColumnList, BButton, BModal, ColumnSubmitterModalForm },
+  components: { BButton, BModal, ColumnSubmitterModalForm, ColumnList },
 
   data() {
     return {
