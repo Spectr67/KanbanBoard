@@ -1,7 +1,29 @@
-<script></script>
+<script>
+import KanbanBoard from './KanbanBoard.vue'
+
+export default {
+  components: { KanbanBoard },
+}
+</script>
 
 <template>
-  <h1>hello</h1>
+  <h1>KanbanBoard</h1>
+  <div class="main">
+    <KanbanBoard />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  text-align: center;
+  padding-top: 25px;
+}
+.main {
+  border: 1px solid #000;
+  width: 1200px;
+  height: 700px;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 20px;
+}
+</style>
