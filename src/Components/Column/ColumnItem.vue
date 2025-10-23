@@ -1,9 +1,9 @@
 <script>
-import { BCard, BCardBody, BCardTitle, BCardText } from 'bootstrap-vue-next'
+import { BCard, BCardBody, BCardText } from 'bootstrap-vue-next'
 import CardList from '../Card/CardList.vue'
 
 export default {
-  components: { CardList, BCard, BCardBody, BCardTitle, BCardText },
+  components: { CardList, BCard, BCardBody, BCardText },
   props: ['column'],
 }
 </script>

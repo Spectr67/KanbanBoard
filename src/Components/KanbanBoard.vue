@@ -41,9 +41,13 @@ export default {
       </BButton>
     </div>
 
-    <BModal v-model="showModal" title="Add New Column" centered>
+    <BModal v-model="showModal" title="Add New Column" centered no-footer>
       <ColumnSubmitterModalForm @ColumnSubmit="handleColumnSubmit" />
+
+      <!-- Переопределяем footer, чтобы скрыть дефолтные OK и Cancel -->
+      <template #footer></template>
     </BModal>
+
     <div>
       <ColumnList :columns="columns" />
     </div>

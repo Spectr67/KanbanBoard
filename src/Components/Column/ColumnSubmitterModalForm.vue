@@ -69,7 +69,9 @@ export default {
     </BFormGroup>
 
     <div class="text-center mt-3">
-      <BButton type="submit" variant="primary">Create Column</BButton>
+      <BButton type="submit" class="fs-4 px-3 py-1 fw-bold"
+        >Create Column</BButton
+      >
     </div>
   </BForm>
 </template>
