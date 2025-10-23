@@ -43,9 +43,6 @@ export default {
 
     <BModal v-model="showModal" title="Add New Column" centered no-footer>
       <ColumnSubmitterModalForm @ColumnSubmit="handleColumnSubmit" />
-
-      <!-- Переопределяем footer, чтобы скрыть дефолтные OK и Cancel -->
-      <template #footer></template>
     </BModal>
 
     <div>
