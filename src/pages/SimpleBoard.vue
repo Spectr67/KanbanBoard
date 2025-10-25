@@ -4,7 +4,7 @@ const randId = () => window.crypto.randomUUID().split('-').at(0)
 export default {
   data() {
     return {
-      title: 'Канбан доска',
+      title: 'SimpleBoard',
       columnCaption: '',
       cardText: '',
       columns: [

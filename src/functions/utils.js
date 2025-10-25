@@ -1,6 +1,6 @@
 const makeId = () => ((Math.random() * 0xffff_ffff) >>> 0).toString(16)
 
-function createColumn(title, cardsLimit = 3) {
+export function createColumn(title, cardsLimit = 3) {
   return {
     id: makeId(),
     cards: [],
@@ -24,7 +24,7 @@ function createColumn(title, cardsLimit = 3) {
   }
 }
 
-function createCard(text, author = 'anonymous') {
+export function createCard(text, author = 'anonymous') {
   return {
     id: makeId(),
     text: text,
@@ -32,5 +32,3 @@ function createCard(text, author = 'anonymous') {
     timestamp: 0,
   }
 }
-
-export { createCard, createColumn }

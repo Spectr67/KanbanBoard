@@ -1,13 +1,14 @@
 <script>
-import KanbanBoard from './Components/KanbanBoard.vue'
+import KanbanBoard from './pages/KanbanBoard.vue'
+import SimpleBoard from './pages/SimpleBoard.vue'
 
 export default {
-  components: { KanbanBoard },
+  components: { KanbanBoard, SimpleBoard },
 }
 </script>
 
 <template>
-  <h1>KanbanBoard</h1>
+  <h1>Board</h1>
   <div class="main">
     <KanbanBoard />
   </div>

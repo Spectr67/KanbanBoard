@@ -5,7 +5,7 @@ import {
   BFormInput,
   BButton,
 } from 'bootstrap-vue-next'
-import { createCard } from '@/CreateFunctions'
+import { createCard } from '@/functions/utils'
 export default {
   components: {
     BForm,

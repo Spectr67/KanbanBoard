@@ -1,14 +1,14 @@
 <script>
 import { BButton, BModal } from 'bootstrap-vue-next'
-import ColumnSubmitterModalForm from './Column/ColumnSubmitterModalForm.vue'
-import ColumnList from './Column/ColumnList.vue'
+import ColumnSubmitterModalForm from '../Components/Column/ColumnSubmitterModalForm.vue'
+import ColumnList from '../Components/Column/ColumnList.vue'
 
 export default {
   components: { BButton, BModal, ColumnSubmitterModalForm, ColumnList },
 
   data() {
     return {
-      caption: 'Канбан доска',
+      caption: 'KanbanBoard',
       columns: [],
       columnsCount: 0,
       showModal: false,
