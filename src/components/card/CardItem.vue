@@ -1,25 +1,27 @@
 <script>
-import { BCard, BCardText, BCardTitle } from 'bootstrap-vue-next'
 export default {
-  components: [BCard, BCardTitle, BCardText],
-  props: ['column'],
+  props: ['card'],
 }
 </script>
 
 <template>
-  <BCard
-    no-body
-    style="max-width: 20rem"
-    img-src="https://picsum.photos/380/200"
-    img-alt="Image"
-    img-top
-  >
-    <template #header>
-      <h4 class="mb-0">Hello World</h4>
-    </template>
-    <BCardBody>
-      <BCardTitle>{{ column.title }}</BCardTitle>
-      <BCardText>{{ column.role }} </BCardText>
-    </BCardBody>
-  </BCard>
+  <div class="card-item">
+    <p class="mb-0">{{ card.text }}</p>
+  </div>
 </template>
+
+<style scoped>
+.card-item {
+  padding: 8px 12px;
+  border: 1px solid fuchsia;
+  border-radius: 6px;
+  background-color: #fff0f5;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card-item:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+</style>

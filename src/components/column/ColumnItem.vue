@@ -6,8 +6,7 @@ import {
   BCardText,
   BModal,
 } from 'bootstrap-vue-next'
-import CardList from '../Card/CardList.vue'
-import CardSubmitterModalForm from '../Card/CardSubmitterModalForm.vue'
+import CardList from '../card/CardList.vue'
 
 export default {
   components: {
@@ -16,44 +15,20 @@ export default {
     BCardBody,
     BCardText,
     BModal,
-    CardSubmitterModalForm,
     BButton,
   },
   props: ['column'],
   data() {
-    return {
-      showModal: false,
-    }
-  },
-
-  methods: {
-    openModal() {
-      this.showModal = true
-    },
-
-    closeModal() {
-      this.showModal = false
-    },
-
-    handleCardSubmit(newCard) {
-      this.$emit('CardSubmit', newCard)
-      this.closeModal()
-    },
+    return {}
   },
 }
 </script>
 
 <template>
-  <BModal v-model="showModal" title="Add New Card" centered no-footer>
-    <CardSubmitterModalForm @CardSubmit="handleCardSubmit" />
-  </BModal>
-
   <BCard class="wrapper-card" no-body>
     <template #header>
       <h5 class="mb-0 text-center">{{ column.title }}</h5>
     </template>
-
-    <BButton class="fs-5 px-3" @click="openModal"> Add Card </BButton>
 
     <BCardBody class="d-flex flex-column justify-content-between">
       <BCardText class="text-truncate">{{ column.role || '' }}</BCardText>

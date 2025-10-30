@@ -106,7 +106,7 @@ export default {
   </main>
 </template>
 
-<style>
+<style scoped>
 button {
   width: 100px;
 }

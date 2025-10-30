@@ -1,33 +1,50 @@
 <script>
+import CardSubmitterModalForm from '@/components/card/CardSubmitterModalForm.vue'
+import ColumnList from '@/components/column/ColumnList.vue'
+import ColumnSubmitterModalForm from '@/components/column/ColumnSubmitterModalForm.vue'
 import { BButton, BModal } from 'bootstrap-vue-next'
-import ColumnSubmitterModalForm from '../Components/Column/ColumnSubmitterModalForm.vue'
-import ColumnList from '../Components/Column/ColumnList.vue'
-
 export default {
-  components: { BButton, BModal, ColumnSubmitterModalForm, ColumnList },
+  components: {
+    BButton,
+    BModal,
+    ColumnSubmitterModalForm,
+    ColumnList,
+    CardSubmitterModalForm,
+  },
 
   data() {
     return {
       caption: 'KanbanBoard',
       columns: [],
       columnsCount: 0,
-      showModal: false,
+      showColumnModal: false,
+      showCardModal: false,
     }
   },
 
   methods: {
-    openModal() {
-      this.showModal = true
+    openColumnModal() {
+      this.showColumnModal = true
+    },
+    closeColumnModal() {
+      this.showColumnModal = false
+    },
+    openCardModal() {
+      this.showCardModal = true
+    },
+    closeCardModal() {
+      this.showCardModal = false
     },
 
-    closeModal() {
-      this.showModal = false
-    },
-
-    handleColumnSubmit(newColumn) {
-      this.columns.push(newColumn)
+    handleColumnSubmit(column) {
+      this.columns.push(column)
       this.columnsCount = this.columns.length
-      this.closeModal()
+      this.closeColumnModal()
+    },
+    handleCardSubmit(newCard) {
+      if (this.columns.length === 0) return
+      this.columns[0].cards.push(newCard)
+      this.closeCardModal()
     },
   },
 }
@@ -35,18 +52,35 @@ export default {
 
 <template>
   <div class="container">
-    <div class="text-center mt-4">
-      <BButton class="fs-4 px-3 py-1 fw-bold" @click="openModal">
+    <div class="text-center mt-4 d-flex gap-3 justify-content-center">
+      <BButton class="fs-4 px-3 py-1 fw-bold" @click="openColumnModal">
         Add Column
+      </BButton>
+      <BButton
+        class="fs-4 px-3 py-1 fw-bold"
+        @click="openCardModal"
+        :disabled="columns.length === 0"
+      >
+        Add Card
       </BButton>
     </div>
 
-    <BModal v-model="showModal" title="Add New Column" centered no-footer>
+    <BModal v-model="showColumnModal" title="Add New Column" centered no-footer>
       <ColumnSubmitterModalForm @ColumnSubmit="handleColumnSubmit" />
     </BModal>
 
-    <div>
+    <BModal v-model="showCardModal" title="Add New Card" centered no-footer>
+      <CardSubmitterModalForm @CardSubmit="handleCardSubmit" />
+    </BModal>
+
+    <div class="mt-4">
       <ColumnList :columns="columns" />
     </div>
   </div>
 </template>
+
+<style scoped>
+button {
+  width: 250px;
+}
+</style>
