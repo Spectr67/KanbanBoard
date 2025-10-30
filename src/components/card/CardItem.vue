@@ -18,6 +18,8 @@ export default {
   background-color: #fff0f5;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .card-item:hover {

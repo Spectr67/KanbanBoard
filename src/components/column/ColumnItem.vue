@@ -30,7 +30,7 @@ export default {
       <h5 class="mb-0 text-center">{{ column.title }}</h5>
     </template>
 
-    <BCardBody class="d-flex flex-column justify-content-between">
+    <BCardBody>
       <BCardText class="text-truncate">{{ column.role || '' }}</BCardText>
       <CardList :cards="column.cards" />
     </BCardBody>

@@ -23,8 +23,5 @@ export default {
   border: 1px solid #000;
   border-radius: 8px;
   background-color: #f9f9f9;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 </style>
